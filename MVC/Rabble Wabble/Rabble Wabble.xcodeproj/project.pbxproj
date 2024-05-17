@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		BD4B3AEB2BF4A88E0047A56B /* SelectQuestionGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4B3AEA2BF4A88E0047A56B /* SelectQuestionGroupViewController.swift */; };
 		BD4B3AED2BF4A9A70047A56B /* QuestionGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4B3AEC2BF4A9A70047A56B /* QuestionGroupCell.swift */; };
+		BD79755C2BF5E74E0055BC37 /* QuestionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD79755B2BF5E74E0055BC37 /* QuestionStrategy.swift */; };
+		BD79755E2BF5F5FA0055BC37 /* SequentialQuestionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD79755D2BF5F5FA0055BC37 /* SequentialQuestionStrategy.swift */; };
+		BD7975602BF644360055BC37 /* RandomQuestionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD79755F2BF644360055BC37 /* RandomQuestionStrategy.swift */; };
 		BD9FBF392BF484730039E4FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FBF382BF484730039E4FF /* AppDelegate.swift */; };
 		BD9FBF3B2BF484730039E4FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FBF3A2BF484730039E4FF /* SceneDelegate.swift */; };
 		BD9FBF3D2BF484730039E4FF /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FBF3C2BF484730039E4FF /* QuestionViewController.swift */; };
@@ -24,6 +27,9 @@
 /* Begin PBXFileReference section */
 		BD4B3AEA2BF4A88E0047A56B /* SelectQuestionGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectQuestionGroupViewController.swift; sourceTree = "<group>"; };
 		BD4B3AEC2BF4A9A70047A56B /* QuestionGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGroupCell.swift; sourceTree = "<group>"; };
+		BD79755B2BF5E74E0055BC37 /* QuestionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStrategy.swift; sourceTree = "<group>"; };
+		BD79755D2BF5F5FA0055BC37 /* SequentialQuestionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequentialQuestionStrategy.swift; sourceTree = "<group>"; };
+		BD79755F2BF644360055BC37 /* RandomQuestionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuestionStrategy.swift; sourceTree = "<group>"; };
 		BD9FBF352BF484730039E4FF /* Rabble Wabble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rabble Wabble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9FBF382BF484730039E4FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD9FBF3A2BF484730039E4FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +55,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD79755A2BF5E7360055BC37 /* Strategies */ = {
+			isa = PBXGroup;
+			children = (
+				BD79755B2BF5E74E0055BC37 /* QuestionStrategy.swift */,
+				BD79755D2BF5F5FA0055BC37 /* SequentialQuestionStrategy.swift */,
+				BD79755F2BF644360055BC37 /* RandomQuestionStrategy.swift */,
+			);
+			path = Strategies;
+			sourceTree = "<group>";
+		};
 		BD9FBF2C2BF484730039E4FF = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +88,7 @@
 				BD9FBF4E2BF485360039E4FF /* Controllers */,
 				BD9FBF4F2BF4853A0039E4FF /* Models */,
 				BD9FBF502BF4853D0039E4FF /* Resources */,
+				BD79755A2BF5E7360055BC37 /* Strategies */,
 				BD9FBF512BF485440039E4FF /* Views */,
 			);
 			path = "Rabble Wabble";
@@ -202,6 +219,9 @@
 				BD9FBF5B2BF48AA90039E4FF /* QuestionView.swift in Sources */,
 				BD9FBF572BF4880A0039E4FF /* QuestionGroupData.swift in Sources */,
 				BD4B3AED2BF4A9A70047A56B /* QuestionGroupCell.swift in Sources */,
+				BD79755E2BF5F5FA0055BC37 /* SequentialQuestionStrategy.swift in Sources */,
+				BD7975602BF644360055BC37 /* RandomQuestionStrategy.swift in Sources */,
+				BD79755C2BF5E74E0055BC37 /* QuestionStrategy.swift in Sources */,
 				BD9FBF552BF487A70039E4FF /* QuestionGroup.swift in Sources */,
 				BD4B3AEB2BF4A88E0047A56B /* SelectQuestionGroupViewController.swift in Sources */,
 				BD9FBF3B2BF484730039E4FF /* SceneDelegate.swift in Sources */,
