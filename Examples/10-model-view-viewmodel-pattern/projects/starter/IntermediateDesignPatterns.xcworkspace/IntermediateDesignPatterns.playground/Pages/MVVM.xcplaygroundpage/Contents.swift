@@ -41,9 +41,9 @@ public class PetViewModel {
     private let pet: Pet
     private let calendar: Calendar
     
-    public init(pet: Pet, calendar: Calendar) {
+    public init(pet: Pet) {
         self.pet = pet
-        self.calendar = calendar
+        self.calendar = Calendar(identifier: .gregorian)
     }
     
     public var name: String {
@@ -75,41 +75,69 @@ public class PetViewModel {
             return "5000원"
         }
     }
-    
-    public class PetView: UIView{
-        public let imageView: UIImageView
-        public let nameLabel: UILabel
-        public let ageLabel: UILabel
-        public let adoptionFeeLabel: UILabel
-        
-        public override init(frame: CGRect) {
-            var childFrame = CGRect(x: 0, y: 16, width: frame.width, height: frame.height / 2)
-            imageView = UIImageView(frame: childFrame)
-            imageView.contentMode = .scaleAspectFit
-            
-            childFrame.origin.y += childFrame.height + 16
-            childFrame.size.height = 30
-            nameLabel = UILabel(frame: childFrame)
-            nameLabel.textAlignment = .center
-            
-            childFrame.origin.y += childFrame.height
-            ageLabel = UILabel(frame: childFrame)
-            ageLabel.textAlignment = .center
-            
-            childFrame.origin.y += childFrame.height
-            adoptionFeeLabel = UILabel(frame: childFrame)
-            adoptionFeeLabel.textAlignment = .center
-            
-            super.init(frame: frame)
-            backgroundColor = .white
-            addSubview(imageView)
-            addSubview(nameLabel)
-            addSubview(ageLabel)
-            addSubview(adoptionFeeLabel)
-        }
-        
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
+}
+
+extension PetViewModel {
+    public func configure(_ view: PetView) {
+        view.nameLabel.text = name
+        view.ageLabel.text = ageText
+        view.adoptionFeeLabel.text = adoptionFeeText
+        view.imageView.image = image
     }
 }
+
+public class PetView: UIView {
+    public let imageView: UIImageView
+    public let nameLabel: UILabel
+    public let ageLabel: UILabel
+    public let adoptionFeeLabel: UILabel
+    
+    public override init(frame: CGRect) {
+        var childFrame = CGRect(x: 0, y: 16, width: frame.width, height: frame.height / 2)
+        imageView = UIImageView(frame: childFrame)
+        imageView.contentMode = .scaleAspectFit
+        
+        childFrame.origin.y += childFrame.height + 16
+        childFrame.size.height = 30
+        nameLabel = UILabel(frame: childFrame)
+        nameLabel.textAlignment = .center
+        
+        childFrame.origin.y += childFrame.height
+        ageLabel = UILabel(frame: childFrame)
+        ageLabel.textAlignment = .center
+        
+        childFrame.origin.y += childFrame.height
+        adoptionFeeLabel = UILabel(frame: childFrame)
+        adoptionFeeLabel.textAlignment = .center
+        
+        super.init(frame: frame)
+        backgroundColor = .white
+        addSubview(imageView)
+        addSubview(nameLabel)
+        addSubview(ageLabel)
+        addSubview(adoptionFeeLabel)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+let birthDay = Date(timeIntervalSince1970: (-2 * 86400 * 366))
+let image = UIImage(named: "stuart")!
+let stuart = Pet(name: "Stuart", birthday: birthDay, rarity: .veryRare, image: image)
+
+let viewModel = PetViewModel(pet: stuart)
+
+let frame = CGRect(x: 0, y: 0, width: 300, height: 420)
+let view = PetView(frame: frame)
+
+// through implementing viewModel the following codes are reduced like so
+//view.nameLabel.text = viewModel.name
+//view.ageLabel.text = viewModel.ageText
+//view.imageView.image = viewModel.image
+//view.adoptionFeeLabel.text = viewModel.adoptionFeeText
+
+viewModel.configure(view)
+
+//PlaygroundPage.current.liveView = view
