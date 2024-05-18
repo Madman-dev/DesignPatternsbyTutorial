@@ -28,3 +28,5 @@ Through implementing strategy Pattern, we are able to alter functions as we like
 - 2 types of strategy > Railroad, Road > conforming to Single Strategy.
 This enables separate implementation of similar functions but also leave each strategies to be implemented with additional methods.
 
+
+https://stackoverflow.com/questions/37670842/is-strategy-design-pattern-no-more-than-the-basic-use-of-polymorphism
