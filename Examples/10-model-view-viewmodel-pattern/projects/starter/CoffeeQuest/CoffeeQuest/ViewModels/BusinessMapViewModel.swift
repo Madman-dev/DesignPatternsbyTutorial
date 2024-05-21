@@ -26,7 +26,7 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 import MapKit
 
 public class BusinessMapViewModel: NSObject {
@@ -35,14 +35,20 @@ public class BusinessMapViewModel: NSObject {
   public let coordinate: CLLocationCoordinate2D
   public let name: String
   public let rating: Double
+  // adding images and additional informations
+  public let image: UIImage
+  public let ratingDescription: String
   
   // MARK: - Object Lifecycle
   public init(coordinate: CLLocationCoordinate2D,
               name: String,
-              rating: Double) {
+              rating: Double,
+              image: UIImage) {
     self.coordinate = coordinate
     self.name = name
     self.rating = rating
+    self.image = image
+    self.ratingDescription = "\(rating) stars"
   }
 }
 
@@ -51,5 +57,9 @@ extension BusinessMapViewModel: MKAnnotation {
   
   public var title: String? {
     return name
+  }
+  
+  public var subtitle: String? {
+    return ratingDescription
   }
 }

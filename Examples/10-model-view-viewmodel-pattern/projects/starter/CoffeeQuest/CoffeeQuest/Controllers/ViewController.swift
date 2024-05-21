@@ -46,7 +46,7 @@ public class ViewController: UIViewController {
   // MARK: - View Lifecycle
   public override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     locationManager.requestWhenInUseAuthorization()
   }
   
@@ -74,10 +74,7 @@ extension ViewController: MKMapViewDelegate {
   
   private func searchForBusinesses() {
     let coordinate = mapView.userLocation.coordinate
-    guard coordinate.latitude != 0,
-      coordinate.longitude != 0 else {
-        return
-    }
+    guard coordinate.latitude != 0, coordinate.longitude != 0 else { return }
     
     let yelpCoordinate = YLPCoordinate(latitude: coordinate.latitude,
                                        longitude: coordinate.longitude)
@@ -87,16 +84,16 @@ extension ViewController: MKMapViewDelegate {
                   limit: 35,
                   offset: 0,
                   sort: .bestMatched) { [weak self] (searchResult, error) in
-                    guard let self = self else { return }
-                    guard let searchResult = searchResult,
-                      error == nil else {
-                        print("Search failed: \(String(describing: error))")
-                        return
-                    }
-                    self.businesses = searchResult.businesses
-                    DispatchQueue.main.async {
-                      self.addAnnotations()
-                    }
+      guard let self = self else { return }
+      guard let searchResult = searchResult,
+            error == nil else {
+        print("Search failed: \(String(describing: error))")
+        return
+      }
+      self.businesses = searchResult.businesses
+      DispatchQueue.main.async {
+        self.addAnnotations()
+      }
     }
   }
   
@@ -105,15 +102,53 @@ extension ViewController: MKMapViewDelegate {
       guard let yelpCoordinate = business.location.coordinate else {
         continue
       }
-
+      
       let coordinate = CLLocationCoordinate2D(latitude: yelpCoordinate.latitude,
                                               longitude: yelpCoordinate.longitude)
       let name = business.name
       let rating = business.rating
-      let annotation = MapPin(coordinate: coordinate,
-                              name: name,
-                              rating: rating)
+      //      let annotation = BusinessMapViewModel(coordinate: coordinate,
+      //                              name: name,
+      //                              rating: rating)
+      //      mapView.addAnnotation(annotation)
+      let image: UIImage
+      
+      switch rating {
+      case 0.0..<3.5:
+        image = UIImage(named: "bad")!
+      case 3.5..<4.0:
+        image = UIImage(named: "meh")!
+      case 4.1..<4.75:
+        image = UIImage(named: "good")!
+      case 4.75..<5.0:
+        image = UIImage(named: "great")!
+      default:
+        image = UIImage(named: "bad")!
+      }
+      let annotation = BusinessMapViewModel(coordinate: coordinate,
+                                            name: name,
+                                            rating: rating,
+                                            image: image)
       mapView.addAnnotation(annotation)
     }
+  }
+  
+  public func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
+    guard let viewModel = annotation as? BusinessMapViewModel else {
+      return nil
+    }
+    
+    let identifier = "business"
+    let annotationView: MKAnnotationView
+    if let existingView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
+      annotationView = existingView
+    } else {
+      annotationView = MKAnnotationView(annotation: viewModel,
+                                        reuseIdentifier: identifier)
+    }
+    
+    annotationView.image = viewModel.image
+    annotationView.canShowCallout = true
+    return annotationView
   }
 }
