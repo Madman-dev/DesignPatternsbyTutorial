@@ -13,6 +13,9 @@
 		BDBFF9AA2BFC8C2000BE930E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDBFF9A92BFC8C2000BE930E /* Assets.xcassets */; };
 		BDBFF9AD2BFC8C2000BE930E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BDBFF9AC2BFC8C2000BE930E /* Base */; };
 		BDBFF9B82BFCB34400BE930E /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFF9B72BFCB34400BE930E /* PersonView.swift */; };
+		BDBFF9BA2BFCD73900BE930E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFF9B92BFCD73900BE930E /* Model.swift */; };
+		BDBFF9BC2BFCD7C400BE930E /* PeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFF9BB2BFCD7C400BE930E /* PeopleViewModel.swift */; };
+		BDBFF9BE2BFCDABF00BE930E /* PersonCollectionviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFF9BD2BFCDABF00BE930E /* PersonCollectionviewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		BDBFF9AC2BFC8C2000BE930E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDBFF9AE2BFC8C2000BE930E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDBFF9B72BFCB34400BE930E /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		BDBFF9B92BFCD73900BE930E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		BDBFF9BB2BFCD7C400BE930E /* PeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewModel.swift; sourceTree = "<group>"; };
+		BDBFF9BD2BFCDABF00BE930E /* PersonCollectionviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCollectionviewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,9 @@
 				BDBFF9A02BFC8C1F00BE930E /* AppDelegate.swift */,
 				BDBFF9A22BFC8C1F00BE930E /* SceneDelegate.swift */,
 				BDBFF9A42BFC8C1F00BE930E /* PeopleViewController.swift */,
+				BDBFF9BD2BFCDABF00BE930E /* PersonCollectionviewCell.swift */,
+				BDBFF9B92BFCD73900BE930E /* Model.swift */,
+				BDBFF9BB2BFCD7C400BE930E /* PeopleViewModel.swift */,
 				BDBFF9B72BFCB34400BE930E /* PersonView.swift */,
 				BDBFF9AE2BFC8C2000BE930E /* Info.plist */,
 			);
@@ -161,6 +170,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDBFF9BA2BFCD73900BE930E /* Model.swift in Sources */,
+				BDBFF9BE2BFCDABF00BE930E /* PersonCollectionviewCell.swift in Sources */,
+				BDBFF9BC2BFCD7C400BE930E /* PeopleViewModel.swift in Sources */,
 				BDBFF9A52BFC8C1F00BE930E /* PeopleViewController.swift in Sources */,
 				BDBFF9B82BFCB34400BE930E /* PersonView.swift in Sources */,
 				BDBFF9A12BFC8C1F00BE930E /* AppDelegate.swift in Sources */,

@@ -48,13 +48,27 @@ class PersonView: UIView {
         return stackView
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private var action: () -> ()
+    
+    init(action: @escaping () -> Void) {
+        self.action = action
+        super.init(frame: .zero)
         setup()
     }
     
+    // no longer needed
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        setup()
+//    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func set(name: String, email: String) {
+        nameLabel.text = name
+        emailLabel.text = email
     }
 }
 
@@ -78,6 +92,6 @@ extension PersonView {
     }
     
     @objc func didTapFollow() {
-        print("팔로우 버튼이 눌렸습니다.")
+        action()
     }
 }
